@@ -1,0 +1,22 @@
+
+
+A compiler avec OCaml, voici les commandes :
+
+ocamllex lexeur.mll
+ocamlyacc parseur.mly
+ocamlc -c AST.ml parseur.mli lexeur.ml parseur.ml interpreteur.ml
+ocamlc -o interpreteur AST.cmo lexeur.cmo parseur.cmo interpreteur.cmo
+
+puis pour l'exécution (sur unix) :
+./interpreteur moncode.jsm
+
+********************************************************************************
+Remarquez que ce programme n'est pas prévu pour être efficace, en particulier :
+
+* L'utilisation d'un parseur pour une grammaire aussi simple est absurde (il n'y a
+qu'a voir le code parseur.mly qui ne fait que des copies...). Nous utilisons ici la
+discipline lexeur + parseur, uniquement pour servir d'exemple.
+
+* La machine interne est un peu trop dynamiquement typé; les exceptions de types
+dynamique devraient être implémentés à la compilation et la machine, elle devrait
+bypasser la vérification de type. Mais celà rendrait le débuggage très difficile :)
