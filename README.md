@@ -1,4 +1,4 @@
-*** COMPILATEUR JAVASCRIPT ***
+# COMPILATEUR JAVASCRIPT 
 *********************
 
 > mkdir fragment3b
